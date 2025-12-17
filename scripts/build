@@ -12,7 +12,7 @@ cd ${TOP_DIR}
 harvester_path=../harvester
 if [ ! -d ${harvester_path} ];then
     echo "No existing harvester source. Pulling..."
-    git clone --branch master --single-branch --depth 1 https://github.com/harvester/harvester.git ../harvester
+    git clone --branch v1.7 --single-branch --depth 1 https://github.com/slickwarren/harvester.git ../harvester
 else
     # When building against locally modified harvester source with
     # "-v /path/to/local/harvester/repo:/go/src/github.com/harvester/harvester"
@@ -25,7 +25,7 @@ else
     # to "0.0.0--" which later messes up the harvester charts when
     # `scripts/patch-harvester` is run.  Things do not end well after that.
     # Happily, we can fix it with this git config option:
-    git config --global --add safe.directory /go/src/github.com/harvester/harvester
+    git config --global --add safe.directory /go/src/github.com/slickwarren/harvester
 fi
 
 source ${SCRIPTS_DIR}/lib/addon
